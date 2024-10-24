@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RevitPluginWalls25.Properties;
+using System;
 using System.IO;
 
 namespace RevitPluginWalls
@@ -16,23 +17,19 @@ namespace RevitPluginWalls
 
         public Settings() 
         {
-            EntryPoint = Properties.Settings.Default.EntryPoint;
-            RibbonSectionName = Properties.Settings.Default.RibbonSectionName;
-            RibbonBtnName = Properties.Settings.Default.RibbonBtnName;
-            RibbonBtnNameText = Properties.Settings.Default.RibbonBtnNameTips;
+            EntryPoint = Resources.EntryPoint;
+            RibbonSectionName = Resources.RibbonSectionName;
+            RibbonBtnName = Resources.RibbonBtnName;
+            RibbonBtnNameText = Resources.RibbonBtnNameTips;
             LocalStoragePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RevitPluginData", "WallPlugin", "2022", "local.json");
 #if DEBUG
-            IconPath = Path.Combine( Properties.Settings.Default.DebugAppPath,
-                Properties.Settings.Default.ImageFolderName);
-            AppDllFullName = Path.Combine(Properties.Settings.Default.DebugAppPath,
-                Properties.Settings.Default.AssembleName);
+            IconPath = Path.Combine( Resources.DebugAppPath, Resources.ImageFolderName);
+            AppDllFullName = Path.Combine(Resources.DebugAppPath, Resources.AssembleName);
 #else       
             IconPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                Properties.Settings.Default.ReleaseAppPath,
-                Properties.Settings.Default.ImageFolderName);
+                Resources.ReleaseAppPath, Resources.ImageFolderName);
             AppDllFullName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                Properties.Settings.Default.ReleaseAppPath,
-                Properties.Settings.Default.AssembleName);
+                Resources.ReleaseAppPath, Resources.AssembleName);
 #endif
         }
     }

@@ -2,15 +2,9 @@
 using Autodesk.Revit.DB.ExtensibleStorage;
 using Autodesk.Revit.UI;
 using RevitPluginWalls.Abstract;
-using RevitPluginWalls.CommandData;
 using RevitPluginWalls.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using RevitPluginWalls25.Properties;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RevitPluginWalls.Controllers
 {
@@ -25,8 +19,8 @@ namespace RevitPluginWalls.Controllers
         public DataStorageController(ExternalCommandData commandData)
         {
             _doc = commandData.Application.ActiveUIDocument.Document;
-            _schemaGuid = new Guid(Properties.Settings.Default.DataStorageGuid);
-            _datastorageName = Properties.Settings.Default.DataStorageName;
+            _schemaGuid = new Guid(Resources.DataStorageGuid);
+            _datastorageName = Resources.DataStorageName;
             _entityName = "Settings";
         }
 

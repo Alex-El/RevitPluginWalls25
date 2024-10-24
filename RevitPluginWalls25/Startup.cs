@@ -8,6 +8,7 @@ using RevitPluginWalls.CommandData;
 using RevitPluginWalls.Controllers;
 using RevitPluginWalls.Models;
 using RevitPluginWalls.ViewModels;
+using RevitPluginWalls25.Properties;
 using System;
 
 namespace RevitPluginWalls
@@ -49,13 +50,13 @@ namespace RevitPluginWalls
                 if (apiController.RequestData(data, out string api_result))
                 {
                     if(modelBuilder.BuildModel(data, out string build_result))
-                        TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.SuccessMessage + "\n - " + build_result);
+                        TaskDialog.Show(Resources.ProgramName, Resources.SuccessMessage + "\n - " + build_result);
                     else
-                        TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.FailMessage + "\n - " + build_result);
+                        TaskDialog.Show(Resources.ProgramName, Resources.FailAPIMessage + "\n - " + build_result);
                 }
                 else
                 {
-                    TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.FailAPIMessage + "\n - " + api_result);
+                    TaskDialog.Show(Resources.ProgramName, Resources.FailAPIMessage + "\n - " + api_result);
                 }
 
                 return Result.Succeeded;

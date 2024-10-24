@@ -1,14 +1,10 @@
-﻿using RevitPluginWalls.Abstract;
+﻿using Microsoft.Win32;
+using RevitPluginWalls.Abstract;
 using RevitPluginWalls.CommandData;
 using RevitPluginWalls.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace RevitPluginWalls.Controllers
 {
@@ -33,17 +29,15 @@ namespace RevitPluginWalls.Controllers
 
         T ReadAndParseFile<T>() where T : new()
         {
-            using (var openFileDialog = new OpenFileDialog())
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == true)
             {
-                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                openFileDialog.RestoreDirectory = true;
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string fileText = File.ReadAllText(openFileDialog.FileName);
-                    T model = JsonSerializer.Deserialize<T>(fileText);
+                string fileText = File.ReadAllText(openFileDialog.FileName);
+                T model = JsonSerializer.Deserialize<T>(fileText);
 
-                    return model;
-                }
+                return model;
             }
             return new T();
         }
