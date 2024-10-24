@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>RevitPluginWalls</Name>
+		<Assembly>C:\tmp\revit\RevitPluginWalls25.dll</Assembly>
+		<AddInId>40BDEF3E-1C59-403B-AB1B-F8986F1FFC4D</AddInId>
+		<FullClassName>RevitPluginWalls.Application</FullClassName>
+		<VendorId>ADSK</VendorId>
+	</AddIn>
+</RevitAddIns>

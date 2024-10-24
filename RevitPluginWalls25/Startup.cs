@@ -1,0 +1,70 @@
+﻿using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using NLog;
+using RevitPluginWalls.Abstract;
+using RevitPluginWalls.BIMCreator;
+using RevitPluginWalls.CommandData;
+using RevitPluginWalls.Controllers;
+using RevitPluginWalls.Models;
+using RevitPluginWalls.ViewModels;
+using System;
+
+namespace RevitPluginWalls
+{
+    [Transaction(TransactionMode.Manual)]
+    public class Startup : IExternalCommand
+    {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        {
+            try
+            {
+                ILocalController localController = new LocalController();
+                IDataStorageController storageController = new DataStorageController(commandData);
+                IAPIController apiController = new APIController();
+                IModelBuilder modelBuilder = new ModelBuilder();
+                IViewModel viewModel = new PluginViewModel();
+
+                var data = new CommandDataStorage(commandData);
+                localController.ReadUserData(data);
+
+
+                if (storageController.TryReadProjectData(out DataStorageModel dataStorageData))
+                {
+                    data.IsBuildFast = dataStorageData.CreationMode == 1 ? true : false;
+                }
+
+                viewModel.ShowDialog(data);
+
+                if (data.SaveNewData)
+                {
+                    localController.WriteUserData(data);
+                    storageController.WriteProjectData(new DataStorageModel { CreationMode = (data.IsBuildFast ? 1 : 0) });
+                }
+
+                if (!data.IsBuild) return Result.Succeeded;
+
+                if (apiController.RequestData(data, out string api_result))
+                {
+                    if(modelBuilder.BuildModel(data, out string build_result))
+                        TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.SuccessMessage + "\n - " + build_result);
+                    else
+                        TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.FailMessage + "\n - " + build_result);
+                }
+                else
+                {
+                    TaskDialog.Show(Properties.Settings.Default.ProgramName, Properties.Settings.Default.FailAPIMessage + "\n - " + api_result);
+                }
+
+                return Result.Succeeded;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                return Result.Failed;
+            }
+        }
+    }
+}
