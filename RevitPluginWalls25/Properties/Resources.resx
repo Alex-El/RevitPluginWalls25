@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AssembleName" xml:space="preserve">
-    <value>RevitPluginWalls.dll</value>
+    <value>RevitPluginWalls25.dll</value>
   </data>
   <data name="DataStorageGuid" xml:space="preserve">
     <value>845DA8A5-E76A-43D4-AC1A-A5803802D064</value>

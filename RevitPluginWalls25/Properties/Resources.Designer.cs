@@ -61,7 +61,7 @@ namespace RevitPluginWalls25.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RevitPluginWalls.dll.
+        ///   Looks up a localized string similar to RevitPluginWalls25.dll.
         /// </summary>
         public static string AssembleName {
             get {

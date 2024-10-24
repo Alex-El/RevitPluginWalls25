@@ -54,7 +54,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;C:\tmp\revit\&quot; /y /i&#xD;&#xA;xcopy &quot;$(ProjectDir)RevitPluginWalls25Test.addin&quot; &quot;%25appdata%25\Autodesk\Revit\Addins\2025\&quot; /y /i&#xD;&#xA;" />
+    <Exec Command="xcopy &quot;$(TargetDir)*.*&quot; &quot;C:\tmp\revit\&quot; /y /i&#xD;&#xA;xcopy &quot;$(ProjectDir)RevitPluginWalls25Test.addin&quot; &quot;%25appdata%25\Autodesk\Revit\Addins\2025\&quot; /y /i&#xD;&#xA;xcopy &quot;$(ProjectDir)Images\*.*&quot; &quot;C:\tmp\revit\Images\&quot; /y /i" />
   </Target>
 
 </Project>

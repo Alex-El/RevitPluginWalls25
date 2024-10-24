@@ -11,7 +11,7 @@ namespace RevitPluginWalls
     {
         public Result OnStartup(UIControlledApplication application)
         {
-            string logpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RevitPluginLogs", "WallPlugin", "2022", "log.txt");
+            string logpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "RevitPluginLogs", "WallPlugin", "2025", "log.txt");
 
             NLog.LogManager.Setup().LoadConfiguration(builder => {
                 builder.ForLogger().FilterMinLevel(LogLevel.Debug).WriteToFile(fileName: logpath);
