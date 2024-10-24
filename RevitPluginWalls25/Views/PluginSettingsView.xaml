@@ -1,0 +1,92 @@
+﻿<Window x:Class="RevitPluginWalls.Views.PluginSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RevitPluginWalls.Views"
+             xmlns:viewmodels="clr-namespace:RevitPluginWalls.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:PluginViewModel}"
+             mc:Ignorable="d" 
+             SizeToContent="WidthAndHeight"
+             WindowStartupLocation="CenterScreen"
+             ResizeMode="NoResize">
+    <Grid Margin="5 0 10 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Content="Настройка" 
+               Grid.Row="0"
+               Grid.Column="0" Grid.ColumnSpan="3"
+               FontSize="14"
+               HorizontalAlignment="Center"/>
+
+        <Label Content="Адрес сервера (url)"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="1"
+                 Grid.Column="2"
+                 Width="350"
+                 Height="20"
+                 HorizontalAlignment="Left"
+                 Text="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Логин"
+               Grid.Row="2"
+               Grid.Column="0"
+               HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="2"
+                 Grid.Column="2"
+                 Width="350"
+                 Height="20"
+                 HorizontalAlignment="Left"
+                 Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Пароль"
+               Grid.Row="3"
+               Grid.Column="0"
+               HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="3"
+                 Grid.Column="2"
+                 Width="350"
+                 Height="20"
+                 HorizontalAlignment="Left"
+                 Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        
+        <Label Content="Быстрое построение"
+               Grid.Row="4"
+               Grid.Column="0"
+               HorizontalAlignment="Right"/>
+        <CheckBox Grid.Row="4"
+                  Grid.Column="2"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  IsChecked="{Binding IsBuildFast, Mode=TwoWay}"/>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right">
+            <Button Content="Отменить"
+                    Margin="10 5"
+                    Command="{Binding Cancel}"/>
+            <Button Content="Построить модель"
+                    Margin="10 5"
+                    Command="{Binding BuildModel}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
