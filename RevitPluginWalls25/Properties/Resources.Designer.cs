@@ -142,7 +142,7 @@ namespace RevitPluginWalls25.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Autodesk\Revit\Addins\2022\RevitPluginWalls.
+        ///   Looks up a localized string similar to Autodesk\Revit\Addins\2025\RevitPluginWalls.
         /// </summary>
         public static string ReleaseAppPath {
             get {

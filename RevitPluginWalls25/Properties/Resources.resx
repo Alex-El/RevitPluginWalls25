@@ -145,7 +145,7 @@
     <value>Плагин построения стен</value>
   </data>
   <data name="ReleaseAppPath" xml:space="preserve">
-    <value>Autodesk\Revit\Addins\2022\RevitPluginWalls</value>
+    <value>Autodesk\Revit\Addins\2025\RevitPluginWalls</value>
   </data>
   <data name="RibbonBtnName" xml:space="preserve">
     <value>Построить стены</value>

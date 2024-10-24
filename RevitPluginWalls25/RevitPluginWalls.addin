@@ -2,8 +2,8 @@
 <RevitAddIns>
 	<AddIn Type="Application">
 		<Name>RevitPluginWalls</Name>
-		<Assembly>RevitPluginWalls/RevitPluginWalls.dll</Assembly>
-		<AddInId>E5086C5E-0836-4272-A8D4-FA03CFF47504</AddInId>
+		<Assembly>RevitPluginWalls/RevitPluginWalls25.dll</Assembly>
+		<AddInId>8093A127-9A8F-4107-88C2-371BDD70773F</AddInId>
 		<FullClassName>RevitPluginWalls.Application</FullClassName>
 		<VendorId>ADSK</VendorId>
 	</AddIn>
