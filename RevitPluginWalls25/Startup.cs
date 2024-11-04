@@ -35,6 +35,7 @@ namespace RevitPluginWalls
                 if (storageController.TryReadProjectData(out DataStorageModel dataStorageData))
                 {
                     data.IsBuildFast = dataStorageData.CreationMode == 1 ? true : false;
+                    data.ProcjectId = dataStorageData.ProjectId;
                 }
 
                 viewModel.ShowDialog(data);
@@ -42,7 +43,11 @@ namespace RevitPluginWalls
                 if (data.SaveNewData)
                 {
                     localController.WriteUserData(data);
-                    storageController.WriteProjectData(new DataStorageModel { CreationMode = (data.IsBuildFast ? 1 : 0) });
+                    storageController.WriteProjectData(new DataStorageModel 
+                    { 
+                        CreationMode = (data.IsBuildFast ? 1 : 0),
+                        ProjectId = data.ProcjectId
+                    });
                 }
 
                 if (!data.IsBuild) return Result.Succeeded;

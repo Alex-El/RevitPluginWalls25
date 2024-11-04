@@ -22,6 +22,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="30"/>
 
@@ -65,19 +66,30 @@
                  Height="20"
                  HorizontalAlignment="Left"
                  Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        
-        <Label Content="Быстрое построение"
+
+        <Label Content="Код проекта"
                Grid.Row="4"
                Grid.Column="0"
                HorizontalAlignment="Right"/>
-        <CheckBox Grid.Row="4"
+                <TextBox Grid.Row="4"
+                 Grid.Column="2"
+                 Width="350"
+                 Height="20"
+                 HorizontalAlignment="Left"
+                 Text="{Binding ProjectId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Быстрое построение"
+               Grid.Row="5"
+               Grid.Column="0"
+               HorizontalAlignment="Right"/>
+        <CheckBox Grid.Row="5"
                   Grid.Column="2"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   IsChecked="{Binding IsBuildFast, Mode=TwoWay}"/>
 
         <StackPanel Orientation="Horizontal"
-                    Grid.Row="6"
+                    Grid.Row="7"
                     Grid.Column="2"
                     HorizontalAlignment="Right">
             <Button Content="Отменить"

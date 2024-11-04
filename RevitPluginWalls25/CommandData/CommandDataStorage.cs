@@ -24,6 +24,7 @@ namespace RevitPluginWalls.CommandData
         public string Login { get; internal set; } = "";
         public string Password { get; internal set; } = "";
         public string Url { get; internal set; } = "";
+        public string ProcjectId { get; internal set; } = "";
         public bool IsBuildFast { get; internal set; } = false;
 
         internal List<LevelDTOModel> Levels { get; set; } = new List<LevelDTOModel>();

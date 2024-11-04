@@ -34,6 +34,13 @@ namespace RevitPluginWalls.ViewModels
         }
         string _url;
 
+        public string ProjectId
+        {
+            get => _projectId;
+            set => _projectId = value;
+        }
+        string _projectId;
+
         public bool IsBuildFast
         {
             get => _isBuildFast; 
@@ -56,6 +63,7 @@ namespace RevitPluginWalls.ViewModels
             _login = string.Empty;
             _password = string.Empty;
             _url = string.Empty;
+            _projectId = string.Empty;
             _isBuildFast = false;
 
             _view = new PluginSettingsView();
@@ -74,6 +82,7 @@ namespace RevitPluginWalls.ViewModels
             _data.Login = _login;
             _data.Password = _password;
             _data.Url = _url;
+            _data.ProcjectId = _projectId;
             _data.IsBuildFast = _isBuildFast;
 
             _view.Close();
@@ -88,6 +97,7 @@ namespace RevitPluginWalls.ViewModels
             _data.Login = _login;
             _data.Password = _password;
             _data.Url = _url;
+            _data.ProcjectId = _projectId;
             _data.IsBuildFast = _isBuildFast;
 
             _view.Close();
@@ -99,7 +109,8 @@ namespace RevitPluginWalls.ViewModels
 
             return !string.IsNullOrEmpty(_login) &&
                 !string.IsNullOrEmpty(_password) &&
-                !string.IsNullOrEmpty(_url);
+                !string.IsNullOrEmpty(_url) &&
+                !string.IsNullOrEmpty(_projectId);
         }
 
         public void ShowDialog(CommandDataStorage data)
@@ -108,11 +119,13 @@ namespace RevitPluginWalls.ViewModels
             _password = data.Password;
             _url = data.Url;
             _isBuildFast = data.IsBuildFast;
+            _projectId = data.ProcjectId;
             _data = data;
 
             OnPropertyChanged(nameof(Login));
             OnPropertyChanged(nameof(Password));
             OnPropertyChanged(nameof(Url));
+            OnPropertyChanged(nameof(ProjectId));
             OnPropertyChanged(nameof(IsBuildFast));
 
             _view.ShowDialog();

@@ -11,5 +11,8 @@ namespace RevitPluginWalls.Models
     {
         [JsonPropertyName("creation_mode")]
         public int CreationMode { get; set; }
+        
+        [JsonPropertyName("project_id")]
+        public string ProjectId { get; set; }
     }
 }
