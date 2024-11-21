@@ -28,7 +28,11 @@ namespace RevitPluginWalls.CommandData
         public bool IsBuildFast { get; internal set; } = false;
 
         internal List<LevelDTOModel> Levels { get; set; } = new List<LevelDTOModel>();
+        internal List<SlabDTOModel> Slabs { get; set; } = new List<SlabDTOModel>();
+        internal List<BasementDTOModel> Basements { get; set; } = new List<BasementDTOModel>();
         internal List<WallDTOModel> Walls { get; set; } = new List<WallDTOModel>();
+        internal List<DoorDTOModel> Doors { get; set; } = new List<DoorDTOModel>();
+        internal List<WindowDTOModel> Windows { get; set; } = new List<WindowDTOModel>();
 
         public string DataToString()
         {

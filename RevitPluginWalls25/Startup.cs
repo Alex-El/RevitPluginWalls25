@@ -24,7 +24,8 @@ namespace RevitPluginWalls
             {
                 ILocalController localController = new LocalController();
                 IDataStorageController storageController = new DataStorageController(commandData);
-                IAPIController apiController = new APIController();
+                //IAPIController apiController = new APIController();
+                IAPIController apiController = new FileController();
                 IModelBuilder modelBuilder = new ModelBuilder();
                 IViewModel viewModel = new PluginViewModel();
 
