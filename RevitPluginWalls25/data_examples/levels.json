@@ -1,0 +1,22 @@
+[
+	{
+        "id": 0,
+        "uniq_name": "Level_base",
+        "elevation": 0
+    },
+    {
+        "id": 1,
+        "uniq_name": "Level_0",
+        "elevation": 0
+    },
+    {
+        "id": 2,
+        "uniq_name": "Level_1",
+        "elevation": 3000
+    },
+    {
+        "id": 3,
+        "uniq_name": "Level_2",
+        "elevation": 6000
+    }
+]

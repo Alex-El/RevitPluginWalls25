@@ -1,0 +1,131 @@
+[
+    {
+        "id": 11,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_0",
+        "level_top_name": "Level_1",
+        "start_point": [
+            0,
+            0,
+            0
+        ],
+        "end_point": [
+            6000,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 12,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_0",
+        "level_top_name": "Level_1",
+        "start_point": [
+            6000,
+            0,
+            0
+        ],
+        "end_point": [
+            6000,
+            3000,
+            0
+        ]
+    },
+    {
+        "id": 13,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_0",
+        "level_top_name": "Level_1",
+        "start_point": [
+            6000,
+            3000,
+            0
+        ],
+        "end_point": [
+            0,
+            3000,
+            0
+        ]
+    },
+    {
+        "id": 14,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_0",
+        "level_top_name": "Level_1",
+        "start_point": [
+            0,
+            3000,
+            0
+        ],
+        "end_point": [
+            0,
+            0,
+            0
+        ]
+    },
+	
+    {
+        "id": 15,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_1",
+        "level_top_name": "Level_2",
+        "start_point": [
+            0,
+            0,
+            0
+        ],
+        "end_point": [
+            6000,
+            0,
+            0
+        ]
+    },
+    {
+        "id": 16,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_1",
+        "level_top_name": "Level_2",
+        "start_point": [
+            6000,
+            0,
+            0
+        ],
+        "end_point": [
+            6000,
+            3000,
+            0
+        ]
+    },
+    {
+        "id": 17,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_1",
+        "level_top_name": "Level_2",
+        "start_point": [
+            6000,
+            3000,
+            0
+        ],
+        "end_point": [
+            0,
+            3000,
+            0
+        ]
+    },
+    {
+        "id": 18,
+        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "level_base_name": "Level_1",
+        "level_top_name": "Level_2",
+        "start_point": [
+            0,
+            3000,
+            0
+        ],
+        "end_point": [
+            0,
+            0,
+            0
+        ]
+    }
+]
