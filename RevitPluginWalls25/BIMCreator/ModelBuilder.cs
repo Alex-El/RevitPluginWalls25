@@ -139,7 +139,11 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         _ = Build(doc, data, false);
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -166,7 +170,7 @@ namespace RevitPluginWalls.BIMCreator
 
             foreach (var level in data.Levels)
             {
-                var nl = Creator.CreateLevel(doc, mm2ft(data.Levels[0].Elevation), data.Levels[0].UniqName, inTransaction, out string err);
+                var nl = Creator.CreateLevel(doc, mm2ft(level.Elevation), level.UniqName, inTransaction, out string err);
                 if (nl != null)
                 {
                     created_levels.Add(nl);
@@ -267,7 +271,7 @@ namespace RevitPluginWalls.BIMCreator
                 var contour = new List<XYZ>();
                 slab.Polygon.ForEach(p => contour.Add(XYZ2ft(new XYZ(p[0], p[1], p[2]))));
 
-                var ns = Creator.GreateFloor(doc, lev, lev.Elevation, contour, floorType, inTransaction, out string err);
+                var ns = Creator.GreateFloor(doc, lev, 0, contour, floorType, inTransaction, out string err);
                 if (ns != null)
                 {
                     created_floors.Add(ns);
@@ -292,7 +296,7 @@ namespace RevitPluginWalls.BIMCreator
                 var nd = Creator.CreateDoor(doc, 
                     host.Item2, 
                     host.Item3, 
-                    XYZ2ft(new XYZ(door.Location[0], door.Location[1], door.Location[2])), 
+                    XYZ2ft(new XYZ(door.Location[0], door.Location[1], ft2mm(host.Item3.Elevation) + door.Location[2])), 
                     doorType, 
                     inTransaction, 
                     out string res );
@@ -320,14 +324,14 @@ namespace RevitPluginWalls.BIMCreator
                 var nw = Creator.CreateWindow(doc,
                     host.Item2,
                     host.Item3,
-                    XYZ2ft(new XYZ(win.Location[0], win.Location[1], win.Location[2])),
+                    XYZ2ft(new XYZ(win.Location[0], win.Location[1], ft2mm(host.Item3.Elevation) + win.Location[2])),
                     winType,
                     inTransaction,
                     out string res);
 
                 if (nw != null)
                 {
-                    created_doors.Add(nw);
+                    created_windows.Add(nw);
                 }
                 else
                 {
@@ -344,6 +348,11 @@ namespace RevitPluginWalls.BIMCreator
             return l / 304.8;
         }
 
+        double ft2mm(double l)
+        {
+            return l * 304.8;
+        }
+
         XYZ XYZ2ft(XYZ p)
         {
             return new XYZ(p.X / 304.8, p.Y / 304.8, p.Z / 304.8);
@@ -354,14 +363,15 @@ namespace RevitPluginWalls.BIMCreator
             string res = "";
             foreach(var k in reports.Keys)
             {
-                res += $"{reports[k].Name}: получено: {reports[k].CountIn}; построено: {reports[k].CountDone}; ошибки: {string.Join(", ", reports[k].Errors)};\n";
+                if (k == 0) continue;
+                res += $"{reports[k].Name}: получено: {reports[k].CountIn}; построено: {reports[k].CountDone}; ошибки: {string.Join(", ", reports[k].Errors)};" + Environment.NewLine;
             }
 
             if (!reports[DataObjectType.None].Errors.All(s => string.IsNullOrEmpty(s)))
             {
-                res += "\n\n";
-                res += "Ошибки построения:\n";
-                res += string.Join("\n", reports[DataObjectType.None].Errors);
+                res += Environment.NewLine + Environment.NewLine;
+                res += "Ошибки построения:" + Environment.NewLine;
+                res += string.Join(Environment.NewLine, reports[DataObjectType.None].Errors);
             }
 
             return res;

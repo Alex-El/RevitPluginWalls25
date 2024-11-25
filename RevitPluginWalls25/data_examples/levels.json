@@ -7,16 +7,16 @@
     {
         "id": 1,
         "uniq_name": "Level_0",
-        "elevation": 0
+        "elevation": 1500
     },
     {
         "id": 2,
         "uniq_name": "Level_1",
-        "elevation": 3000
+        "elevation": 4500
     },
     {
         "id": 3,
         "uniq_name": "Level_2",
-        "elevation": 6000
+        "elevation": 7500
     }
 ]

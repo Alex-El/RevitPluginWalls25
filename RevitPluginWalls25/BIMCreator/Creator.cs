@@ -23,8 +23,12 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         level = Level.Create(document, elevation);
                         level.Name = name;
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -53,10 +57,14 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         Line geomLine = Line.CreateBound(start, end);
                         // Create a wall using the location line
                         wall = Wall.Create(document, geomLine, type.Id, level_down.Id, 1.0, 0.0, false, true);
                         wall.get_Parameter(BuiltInParameter.WALL_HEIGHT_TYPE).Set(level_up.Id);
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -87,6 +95,8 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         // Build a floor profile for the floor creation
                         CurveLoop profile = new CurveLoop();
                         for (int i = 0; i < contour.Count - 1; i++)
@@ -97,7 +107,9 @@ namespace RevitPluginWalls.BIMCreator
 
                         floor = Floor.Create(document, new List<CurveLoop> { profile }, type.Id, level.Id);
                         Parameter param = floor.get_Parameter(BuiltInParameter.FLOOR_HEIGHTABOVELEVEL_PARAM);
-                        param.Set(elevation);
+                        param.Set(0);
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -135,12 +147,16 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         if (!doorType.IsActive)
                         {
                             doorType.Activate();
                             document.Regenerate();
                         }
                         fi = document.Create.NewFamilyInstance(location, doorType, wall, level, StructuralType.NonStructural);
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {
@@ -173,12 +189,16 @@ namespace RevitPluginWalls.BIMCreator
                 {
                     try
                     {
+                        tr.Start();
+
                         if (!winType.IsActive)
                         {
                             winType.Activate();
                             document.Regenerate();
                         }
                         fi = document.Create.NewFamilyInstance(location, winType, wall, level, StructuralType.NonStructural);
+
+                        tr.Commit();
                     }
                     catch (Exception ex)
                     {

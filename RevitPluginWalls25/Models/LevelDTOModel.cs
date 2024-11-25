@@ -15,7 +15,7 @@ namespace RevitPluginWalls.Models
         [JsonPropertyName("uniq_name")]
         public string UniqName { get; set; }
 
-        [JsonPropertyName("Elevation")]
+        [JsonPropertyName("elevation")]
         public float Elevation { get; set; }
     }
 }

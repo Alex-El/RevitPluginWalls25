@@ -1,7 +1,7 @@
 [
     {
         "id": 11,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_0",
         "level_top_name": "Level_1",
         "start_point": [
@@ -17,7 +17,7 @@
     },
     {
         "id": 12,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_0",
         "level_top_name": "Level_1",
         "start_point": [
@@ -33,7 +33,7 @@
     },
     {
         "id": 13,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_0",
         "level_top_name": "Level_1",
         "start_point": [
@@ -49,7 +49,7 @@
     },
     {
         "id": 14,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_0",
         "level_top_name": "Level_1",
         "start_point": [
@@ -66,7 +66,7 @@
 	
     {
         "id": 15,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_1",
         "level_top_name": "Level_2",
         "start_point": [
@@ -82,7 +82,7 @@
     },
     {
         "id": 16,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_1",
         "level_top_name": "Level_2",
         "start_point": [
@@ -98,7 +98,7 @@
     },
     {
         "id": 17,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_1",
         "level_top_name": "Level_2",
         "start_point": [
@@ -114,7 +114,7 @@
     },
     {
         "id": 18,
-        "type_name": "ADSK_Перекрытие_Плита_Бетон_220",
+        "type_name": "ADSK_Внутренняя_Кирпич_250",
         "level_base_name": "Level_1",
         "level_top_name": "Level_2",
         "start_point": [

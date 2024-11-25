@@ -2,13 +2,13 @@
     {
         "id": 111,
         "type_name": "760х2080h М Л",
-        "host_id": 4,
-        "location": [1500, 0, 0]
+        "host_id": 11,
+        "location": [1500, 0, 100]
     },
     {
         "id": 112,
         "type_name": "760х2080h М Л",
-        "host_id": 11,
-        "location": [1500, 0, 0]
+        "host_id": 15,
+        "location": [1500, 0, 100]
     }
 ]
